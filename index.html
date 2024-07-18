@@ -8,7 +8,17 @@
 </head>
 
 <body>
-    <form action="/tacos" method="get">
+    <h1>GET</h1>
+    <form action="http://localhost:8080/tacos" method="get">
+        <input type="text" name="meat" id="">
+        <input type="number" name="qty" id="">
+        <button>Submit</button>
+    </form>
+
+    <hr>
+
+    <h1>POST</h1>
+    <form action="http://localhost:8080/tacos" method="post">
         <input type="text" name="meat" id="">
         <input type="number" name="qty" id="">
         <button>Submit</button>

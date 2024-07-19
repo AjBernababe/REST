@@ -35,6 +35,27 @@ app.post('/tacos', (req, res) => {
 app.get('/characters', (req, res) => {
     res.render('characters/index', { characters })
 })
+app.post('/characters', (req, res) => {
+    console.log(JSON.stringify(req.body))
+    JSON.stringify(req.body) !== '{"hero":"","voiceline":""}' && characters.push(req.body)
+    res.redirect('/characters');
+})
+
+app.get('/characters/new', (req, res) => {
+    res.render('characters/new')
+})
+
+app.get('/characters/:hero', (req, res) => {
+    const character = []
+    character.push(characters.find(obj =>
+        Object.values(obj).includes(req.params.hero)
+    )
+    )
+    console.log(character.length)
+    character[0] &&
+        res.render('characters/index', { characters: character })
+    res.redirect('/characters');
+})
 
 app.listen(port, () => {
     console.log(`On port ${port}`);

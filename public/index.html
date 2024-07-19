@@ -4,25 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get and Post</title>
+    <title>Dota 2 Homepage</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        header {
+            background-color: #e74c3c;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('https://example.com/dota-hero.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .character-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .character-card {
+            background-color: #34495e;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .character-card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .character-card h3 {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #e74c3c;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>GET</h1>
-    <form action="http://localhost:8080/tacos" method="get">
-        <input type="text" name="meat" id="">
-        <input type="number" name="qty" id="">
-        <button>Submit</button>
-    </form>
-
-    <hr>
-
-    <h1>POST</h1>
-    <form action="http://localhost:8080/tacos" method="post">
-        <input type="text" name="meat" id="">
-        <input type="number" name="qty" id="">
-        <button>Submit</button>
-    </form>
+    <header>
+        <h1>Dota 2 Heroes</h1>
+    </header>
+    <section class="hero">
+        <h2>Welcome to the World of Dota 2</h2>
+        <p>Discover your favorite heroes and their iconic voice lines!</p>
+    </section>
+    <section class="character-grid">
+        <div class="character-card">
+            <img src="https://example.com/invoker.jpg" alt="Invoker">
+            <h3>Invoker</h3>
+            <p>"You dare fight me?"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/juggernaut.jpg" alt="Juggernaut">
+            <h3>Juggernaut</h3>
+            <p>"A fine idea!"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/crystalmaiden.jpg" alt="Crystal Maiden">
+            <h3>Crystal Maiden</h3>
+            <p>"Swift as the wolves of Icewrack!"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/axe.jpg" alt="Axe">
+            <h3>Axe</h3>
+            <p>"Axe is all the reinforcement this army needs!"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/pudge.jpg" alt="Pudge">
+            <h3>Pudge</h3>
+            <p>"Get over here!"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/lina.jpg" alt="Lina">
+            <h3>Lina</h3>
+            <p>"Fire away!"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/sven.jpg" alt="Sven">
+            <h3>Sven</h3>
+            <p>"Good idea!"</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/drowranger.jpg" alt="Drow Ranger">
+            <h3>Drow Ranger</h3>
+            <p>"Silent is the grave."</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/shadowfiend.jpg" alt="Shadow Fiend">
+            <h3>Shadow Fiend</h3>
+            <p>"Fear my presence."</p>
+        </div>
+        <div class="character-card">
+            <img src="https://example.com/mirana.jpg" alt="Mirana">
+            <h3>Mirana</h3>
+            <p>"Since you command it."</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Dota 2 Fan Page. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>

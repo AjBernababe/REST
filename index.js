@@ -1,5 +1,6 @@
 import express from 'express';
 import characters from './data/charactersData.js';
+import addID from './helper/helper.js';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -28,8 +29,10 @@ app.get('/characters', (req, res) => {
 app.post('/characters', (req, res) => {
     if (JSON.stringify(req.body) !== '{"hero":"","voiceline":""}') {
         const { hero, voiceline } = req.body
-        const id = characters.length + 1
-        characters.push({ id, hero, voiceline })
+        //add ID
+        let char = { hero, voiceline }
+        addID(char);
+        characters.push(char)
     }
     res.redirect('/characters');
 })

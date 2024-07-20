@@ -1,9 +1,11 @@
-const characters = [
-    { id: 1, hero: "Invoker", voiceline: "You dare fight me?" },
-    { id: 2, hero: "Juggernaut", voiceline: "A fine idea!" },
-    { id: 3, hero: "Crystal Maiden", voiceline: "Swift as the wolves of Icewrack!" },
-    { id: 4, hero: "Axe", voiceline: "Axe is all the reinforcement this army needs!" },
-    { id: 5, hero: "Pudge", voiceline: "Get over here!" },
+import addID from "../helper/helper.js";
+
+const CHARACTERS = [
+    { hero: "Invoker", voiceline: "You dare fight me?" },
+    { hero: "Juggernaut", voiceline: "A fine idea!" },
+    { hero: "Crystal Maiden", voiceline: "Swift as the wolves of Icewrack!" },
+    { hero: "Axe", voiceline: "Axe is all the reinforcement this army needs!" },
+    { hero: "Pudge", voiceline: "Get over here!" },
     // { hero: "Lina", voiceline: "Fire away!" },
     // { hero: "Sven", voiceline: "Good idea!" },
     // { hero: "Drow Ranger", voiceline: "Silent is the grave." },
@@ -125,5 +127,11 @@ const characters = [
     // { hero: "Wraith King", voiceline: "Bow before your king!" },
     // { hero: "Zeus", voiceline: "Lightning strike!" }
 ];
+
+//Add ID to the static characters
+let characters = CHARACTERS
+for (let char of characters) {
+    addID(char);
+}
 
 export default characters;

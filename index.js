@@ -28,21 +28,22 @@ app.get('/', (req, res) => {
 app.get('/characters', (req, res) => {
     res.render('characters/index', { characters })
 })
-//Redirect to all characters
-app.post('/characters', (req, res) => {
-    if (JSON.stringify(req.body) !== '{"hero":"","voiceline":""}') {
-        const { hero, voiceline } = req.body
-        //add ID
-        let char = { hero, voiceline }
-        addID(char);
-        characters.push(char)
-    }
-    res.redirect('/characters');
-})
 
 //New character form
 app.get('/characters/new', (req, res) => {
     res.render('characters/new')
+})
+
+//Adds the new character and redirects to all characters
+app.post('/characters', (req, res) => {
+    const { hero, voiceline } = req.body
+    if (hero !== '' && voiceline !== '') {
+        //add ID property
+        const char = { hero, voiceline }
+        addID(char);
+        characters.push(char)
+    }
+    res.redirect('/characters');
 })
 
 //Show specific character

@@ -14,17 +14,21 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
 
+//Middlewares
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+//Homepage
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-//REST (CRUD)
+// #region Routes
+//Show all characters
 app.get('/characters', (req, res) => {
     res.render('characters/index', { characters })
 })
+//Redirect to all characters
 app.post('/characters', (req, res) => {
     if (JSON.stringify(req.body) !== '{"hero":"","voiceline":""}') {
         const { hero, voiceline } = req.body
@@ -36,16 +40,20 @@ app.post('/characters', (req, res) => {
     res.redirect('/characters');
 })
 
+//New character form
 app.get('/characters/new', (req, res) => {
     res.render('characters/new')
 })
 
+//Show specific character
 app.get('/characters/:id', (req, res) => {
     const { id } = req.params
     const character = characters.find(char => char.id == id)
     res.render('characters/show', { character })
 })
+// #endregion
 
+//Port
 app.listen(8080, () => {
     console.log(`On port 8080`);
 })

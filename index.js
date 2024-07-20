@@ -1,7 +1,7 @@
 import express from 'express';
+import path from 'path';
 import characters from './data/charactersData.js';
 import addID from './helper/helper.js';
-import path from 'path';
 
 //Variables for current Path
 import { fileURLToPath } from 'url';

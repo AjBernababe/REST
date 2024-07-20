@@ -1,17 +1,16 @@
 import express from 'express';
 import characters from './data/charactersData.js';
 import addID from './helper/helper.js';
-
 import path from 'path';
+
+//Variables for current Path
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const port = 8080;
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
-
+//EJS Set up
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
 
@@ -47,6 +46,6 @@ app.get('/characters/:id', (req, res) => {
     res.render('characters/show', { character })
 })
 
-app.listen(port, () => {
-    console.log(`On port ${port}`);
+app.listen(8080, () => {
+    console.log(`On port 8080`);
 })

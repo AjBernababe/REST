@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Characters Index</title>
-  </head>
 
-  <body>
-    <h1>Characters</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Characters Index</title>
+</head>
 
-    <ul>
-      <%for (let char of characters){%>
+<body>
+  <h1>Characters</h1>
+
+  <ul>
+    <%for (let char of characters){%>
       <li>
-        <b> <%= `${char.hero}:`%> </b>
-        <%= `${char.voiceline}` %>
+        <a href="characters/<%=char.id%>">
+          <b>
+            <%= `${char.hero}:`%>
+          </b>
+          <%= `${char.voiceline}` %>
+        </a>
       </li>
       <%}%>
 
-      <a href="characters/new">Create new character</a>
-    </ul>
-  </body>
+        <a href="characters/new">Create new character</a>
+  </ul>
+</body>
+
 </html>

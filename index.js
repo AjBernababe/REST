@@ -21,23 +21,16 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-//Get & Post
-app.get('/tacos', (req, res) => {
-    res.send("GET /tacos response")
-})
-
-app.post('/tacos', (req, res) => {
-    const { meat, qty } = req.body;
-    res.send(`Heres your ${meat} with a quantity of ${qty}`)
-})
-
 //REST (CRUD)
 app.get('/characters', (req, res) => {
     res.render('characters/index', { characters })
 })
 app.post('/characters', (req, res) => {
-    console.log(JSON.stringify(req.body))
-    JSON.stringify(req.body) !== '{"hero":"","voiceline":""}' && characters.push(req.body)
+    if (JSON.stringify(req.body) !== '{"hero":"","voiceline":""}') {
+        const { hero, voiceline } = req.body
+        const id = characters.length + 1
+        characters.push({ id, hero, voiceline })
+    }
     res.redirect('/characters');
 })
 
@@ -45,16 +38,10 @@ app.get('/characters/new', (req, res) => {
     res.render('characters/new')
 })
 
-app.get('/characters/:hero', (req, res) => {
-    const character = []
-    character.push(characters.find(obj =>
-        Object.values(obj).includes(req.params.hero)
-    )
-    )
-    console.log(character.length)
-    character[0] &&
-        res.render('characters/index', { characters: character })
-    res.redirect('/characters');
+app.get('/characters/:id', (req, res) => {
+    const { id } = req.params
+    const character = characters.find(char => char.id == id)
+    res.render('characters/show', { character })
 })
 
 app.listen(port, () => {

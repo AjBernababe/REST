@@ -2,19 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 </head>
 
 <body>
-    <h1>Your Hero</h1>
-    <p>
-        <b>
-            <%= `${character.hero}:` %>
-        </b>
-        <%= character.voiceline %>
-    </p>
+  <h1>Your Hero</h1>
+  <p>
+    <b>
+      <%= `${character.hero}:` %>
+    </b>
+    <%= character.voiceline %>
+      <a href="/characters/<%=`${character.id}/edit`%>">Edit</a>
+      <form method="post" action="/characters/<%=character.id%>?_method=DELETE">
+        <button>Delete</button>
+      </form>
+      <div>
+        <a href="/characters">Return to home</a>
+      </div>
+  </p>
 </body>
 
 </html>

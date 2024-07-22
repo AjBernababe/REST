@@ -60,7 +60,6 @@ app.get('/characters/:id', (req, res) => {
 app.get('/characters/:id/edit', (req, res) => {
     const { id } = req.params
     const foundCharacter = characters.find(char => char.id == id)
-    console.log(foundCharacter.id)
     res.render('characters/edit', { foundCharacter })
 })
 
